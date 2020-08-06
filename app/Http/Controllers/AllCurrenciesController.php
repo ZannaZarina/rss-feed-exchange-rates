@@ -3,24 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Currency;
-use App\Services\ExchangeRateFeedReader;
-use App\Services\FeedRequest;
-use App\Services\FeedService;
-use willvincent\Feeds\Facades\FeedsFacade as Feeds;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\DB;
 
 class AllCurrenciesController extends Controller
 {
     public function __invoke()
     {
-        Currency::truncate();
+        Artisan::call('rss:read');
 
-        $items = Feeds::make('https://www.bank.lv/vk/ecb_rss.xml')->get_items();
-        $feedService = new FeedService(new ExchangeRateFeedReader());
-        $feedRequest = new FeedRequest($items);
-        $feedResponse = $feedService->execute($feedRequest);
-        $results = $feedResponse->getResult()->toJson();
+        $lastDateOfUpdate = DB::table('currencies')->value('date');
+        $results = Currency::OneDayRates($lastDateOfUpdate)->get();
 
         return view('home', ['results' => $results]);
     }
-
 }

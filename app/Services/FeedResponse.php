@@ -4,14 +4,14 @@ namespace App\Services;
 
 class FeedResponse
 {
-    private Object $result;
+    private array $result;
 
-    public function __construct(Object $result)
+    public function __construct(array $result)
     {
         $this->result = $result;
     }
 
-    public function getResult(): Object
+    public function getResult(): array
     {
         return $this->result;
     }
