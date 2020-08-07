@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\RssFeedReaderService;
 
 class FeedService
 {
@@ -11,10 +11,8 @@ class FeedService
         $this->feedReader = $feedReader;
     }
 
-    public function execute(FeedRequest $feedRequest): FeedResponse
+    public function execute(array $items)
     {
-        $result = $this->feedReader->handle($feedRequest->getItems());
-
-        return new FeedResponse($result);
+        return $this->feedReader->handle($items);
     }
 }

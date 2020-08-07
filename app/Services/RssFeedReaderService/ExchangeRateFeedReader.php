@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\RssFeedReaderService;
 
 use App\Currency;
 
@@ -20,7 +20,6 @@ class ExchangeRateFeedReader implements FeedReaderInterface
                 ]);
             }
         }
-        return $items;
     }
 }
 

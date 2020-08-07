@@ -2,10 +2,9 @@
 
 namespace App\Console\Commands;
 
-use App\Services\ExchangeRateFeedReader;
-use App\Services\FeedRequest;
-use App\Services\FeedService;
+use App\Services\RssFeedReaderService\FeedService;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\App;
 use willvincent\Feeds\Facades\FeedsFacade as Feeds;
 
 class ReadRssFeedCommand extends Command
@@ -32,9 +31,8 @@ class ReadRssFeedCommand extends Command
     public function handle()
     {
         $items = Feeds::make('https://www.bank.lv/vk/ecb_rss.xml')->get_items();
-        $feedService = new FeedService(new ExchangeRateFeedReader());
-        $feedRequest = new FeedRequest($items);
-        $feedResponse = $feedService->execute($feedRequest);
-        $feedResponse->getResult();
+        $feedReader = App::make('App\Services\RssFeedReaderService\FeedReaderInterface');
+        $feedService = new FeedService($feedReader);
+        return $feedService->execute($items);
     }
 }
