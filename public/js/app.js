@@ -80351,6 +80351,7 @@ var History = /*#__PURE__*/function (_Component) {
     _this.state = {
       currencyData: JSON.parse(props.data)
     };
+    console.log(_this.state.currencyData);
     return _this;
   }
 
@@ -80662,8 +80663,8 @@ function TableHeader() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/zanna/testa uzdevumi/currencies rss/currencies (copy) GH/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/zanna/testa uzdevumi/currencies rss/currencies (copy) GH/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/zanna/Downloads/crr/rss-feed-exchange-rates/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/zanna/Downloads/crr/rss-feed-exchange-rates/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -11,8 +11,8 @@ class FeedService
         $this->feedReader = $feedReader;
     }
 
-    public function execute(array $items)
+    public function execute()
     {
-        return $this->feedReader->handle($items);
+        return $this->feedReader->handle();
     }
 }

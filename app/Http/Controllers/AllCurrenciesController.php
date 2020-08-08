@@ -12,7 +12,8 @@ class AllCurrenciesController extends Controller
     {
         Artisan::call('rss:read');
 
-        $lastDateOfUpdate = DB::table('currencies')->value('date');
+        $lastDateOfUpdate = DB::table('currencies')->
+        reorder('date', 'desc')->value('date');
         $results = Currency::OneDayRates($lastDateOfUpdate)->get();
 
         return view('home', ['results' => $results]);

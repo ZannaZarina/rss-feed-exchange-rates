@@ -30,9 +30,8 @@ class ReadRssFeedCommand extends Command
      */
     public function handle()
     {
-        $items = Feeds::make('https://www.bank.lv/vk/ecb_rss.xml')->get_items();
         $feedReader = App::make('App\Services\RssFeedReaderService\FeedReaderInterface');
         $feedService = new FeedService($feedReader);
-        return $feedService->execute($items);
+        return $feedService->execute();
     }
 }

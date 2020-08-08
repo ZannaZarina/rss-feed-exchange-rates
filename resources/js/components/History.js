@@ -11,6 +11,7 @@ class History extends Component {
         this.state = {
             currencyData: JSON.parse(props.data),
         }
+        console.log(this.state.currencyData);
     }
 
     render() {
