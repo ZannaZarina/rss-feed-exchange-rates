@@ -7,6 +7,7 @@
 6. Create an empty database
 7. In the .env file edit the DB_DATABASE, DB_USERNAME, and DB_PASSWORD fields
 8. Migrate your database: ```php artisan migrate```
+9. Run ```php artisan rss:read```
 9. ```php artisan serve``` to run a project
 
 ### Description
