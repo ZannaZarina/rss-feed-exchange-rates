@@ -9,8 +9,8 @@ class ShowAllCurrenciesController extends Controller
 {
     public function __invoke()
     {
-        $lastDateOfUpdate = DB::table('currencies')->
-        reorder('date', 'desc')->value('date');
+        $lastDateOfUpdate = DB::table('currencies')->orderBy('date', 'DESC')
+            ->value('date');
         $currentRates = Currency::OneDayRates($lastDateOfUpdate)->get();
 
         return view('home', ['currentRates' => $currentRates]);
