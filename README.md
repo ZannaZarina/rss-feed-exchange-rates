@@ -11,6 +11,6 @@
 9. ```php artisan serve``` to run a project
 
 ### Description
-* The main controller ```AllCurrenciesController``` uses an RSS feed that offers the latest currency exchange rates. First of all, the table always is truncated to avoid an accumulation of data, every time renewing it. Obtained data (currency name, value, and publishing date) is passed to a database. After that, the latest rates stored in the database are found. All that actual info is displayed by route ```'/'```. 
+* The main controller ```AllCurrenciesController``` uses an RSS feed that offers the latest currency exchange rates. Obtained data (currency name, value, and publishing date) is passed to a database. After that, the latest rates stored in the database are found. All that actual info is displayed by route ```'/'```. 
 * When clicked the currency or flag icon, the route ```'/{currency}'``` displays appropriate currency exchange rate history (few days) based on database data. Responsible for that is```RateHistoryController```.
 * Frontend is build on React
